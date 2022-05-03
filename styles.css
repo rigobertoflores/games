@@ -3,6 +3,8 @@ body{
     margin: 0;
     overflow: hidden;
     background-color: black;
+    font-style:italic;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 }
 .stadium{
@@ -13,6 +15,201 @@ body{
     width: 40vw;
     background-color: deepskyblue;
 }
+.ini-page{
+    position: absolute;
+    top: 0;
+    z-index: 90;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(131, 141, 141, 0.678);
+
+}
+.ini-page .left-content{
+    position: absolute;
+    top: 70px;
+    left: 4px;
+    color: white;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;  
+}
+.ini-page .right-content{
+    position: absolute;
+    top: 70px;
+    right: 4px;
+    color: white;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;  
+    text-align: right;
+}
+.ini-page .center-content{
+    position: absolute;
+    top: 50%;    
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.ini-page .center-content p{
+    color: white;
+    font-weight: bold;
+    font-size: 14px;  
+    text-align: center;      
+}
+.ini-page .bottom-content{
+    position: absolute;
+    bottom: 10px;    
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;  
+}
+.ini-page button{
+    padding: 10px 20px;
+    cursor: pointer;
+    outline: none;
+    border: 0px;
+    border-radius: 8px;
+    
+
+}
+button{
+    font-style:italic;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.goals{
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width:auto;
+    padding: 5px;
+    background-color: rgb(240, 231, 231);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-size: 25px;
+}
+.goals img{
+    margin-right: 3px;
+}
+.time{
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width:auto;
+    padding: 5px;
+    background-color: rgb(240, 231, 231);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: 25px;
+}
+.time img{
+    margin-right: 2px;
+}
+
+.try-again{
+    display: none;
+    z-index: 99999999999999999999;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+    height: 70%;
+    background-color: rgba(131, 141, 141, 0.678);
+    border-radius: 10px;
+}   
+.try-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.try-content p{
+    font-size: 30px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    color: white;
+}
+.try-cant{
+    font-size: 60px !important;
+
+}
+.try-content button{
+    padding: 10px 20px;
+    cursor: pointer;
+    outline: none;
+    border: 0px;
+    border-radius: 8px;
+    
+}
+.plus-goal{
+    position: absolute;
+    top: 40px;
+    left: 70px;
+    z-index: 100;
+    transition: all 2s;
+    overflow: hidden;
+    height: 30px;
+    width: 30px;
+}
+
+.plus-goal p{
+    position: absolute;
+    top: -40px;
+    color: white;
+    font-size: 26px;
+    transition: all .6s;
+    margin: 0px;
+}
+.gol-indicator, .miss-indicator{
+    visibility: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.gol-indicator p, .miss-indicator p{
+    font-size: 0px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    color: white;
+    transition: all .5s;
+}
+.time-off{
+    visibility: hidden;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.time-off p{
+    margin: 0;
+    font-size:50px;
+    transition: all .5s;
+    color: rgb(180, 43, 43);
+}
+
 .stands{
     position: absolute;
     top: 0;
@@ -38,18 +235,31 @@ body{
     background-image:    linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(255, 255, 255, 0)),    url('img/jason-dent-QSIq9ncQkzY-unsplash.jpg'); */
 }
 .port{
-    z-index: 20;
+    z-index: 100;
     position: absolute;
-    top: 25%;
+    top: 20%;
     left: 50%;
     transform: translateX(-50%);
-    width: 40%;
-    height: 12%;
+    width: 38%;
+    height: 13%;
+}
+.bonification{
+    z-index: 99999999999999;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 120;
+    width: 22px;
+    height: 22px;
+    border: 2px rgba(0, 0, 255, 0.363) solid;
+    border-radius: 50%;
 }
 .ball{
-    z-index: 20;
+    cursor: pointer;
+    z-index: 990;
     position: absolute;
-    top: 60%;
+    top: 70%;
     left: 50%;
     transform: translateX(-50%);
     width:100px;
@@ -58,22 +268,45 @@ body{
     background-color: transparent;
     transition: all .5s;
 }
-.arrow{
+.ball-img{
     position: absolute;
-    bottom: 90%;
+    top: 0;
+    z-index: 200;
+}
+.fake-ball{
+    position: absolute;
+    width: 22px;
+    height: 22px;
+}
+/*Arrow*/
+.arrow-horizontal{
+    transform-origin:center bottom ;    
+}
+.arrow{
+    z-index: 100;
+    position: absolute;
+    bottom: 76%;
     left: 50%;
     transform: translateX(-50%);
+    transform-origin:center bottom;    
+
 }
+
 .icon-container{
     /* transform: rotate(-90deg);     */
     transform-origin:center bottom ;
     transition: all .5s;
 }
 .arrow img{       
+    z-index: 0;
+    width: 80px;
     transform: rotate(-90deg);
     filter: invert(100%);
     -webkit-filter: invert(100%);
-}
+}/*Arrow*/
+
+
+
 
 @media (max-width: 1600px) {
     .stadium{        
@@ -90,4 +323,34 @@ body{
     .stadium{        
         width: 100vw;
     }
+}
+
+.fake-port{
+    position: absolute;
+    /* z-index: 980 ;
+    background-color: aqua; */
+}
+.triangle{
+    display: none;
+    position: absolute;
+    top: 63%;
+    left: calc(50% + 60px);
+    width: 100px;
+    height: 100px;
+    /* background-color: transparent;
+    border-top: 0px transparent solid ;
+    border-right: 50px red solid ;
+    border-bottom: 100px transparent solid ;
+    border-left: 0px transparent  solid ; */    
+}
+.small-triangle{
+    visibility: hidden;
+    position: absolute;
+    top: 63%;
+    left: calc(50% + 92px);
+    border-top: 7px transparent solid ;
+    border-right: 7px whitesmoke solid ;
+    border-bottom: 7px transparent solid ;
+    border-left: 7px transparent  solid ; 
+    transition: all 1s;
 }
