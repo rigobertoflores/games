@@ -45,7 +45,7 @@ body{
 }
 .ini-page .center-content{
     position: absolute;
-    top: 50%;    
+    top: 40%;    
     transform: translateY(-50%);
     width: 100%;
     display: flex;
@@ -285,10 +285,20 @@ button{
 .arrow{
     z-index: 100;
     position: absolute;
-    bottom: 76%;
+    bottom: 70%;
     left: 50%;
     transform: translateX(-50%);
-    transform-origin:center bottom;    
+    transform-origin:center bottom;   
+
+}
+.arrow-shadow{
+    z-index: 90;
+    position: absolute;
+    bottom: 70%;
+    left: 50%;
+    transform: translateX(-50%) rotate3d(0,1,1,30deg);
+    transform-origin:center bottom;
+    transition: all .9s;
 
 }
 
@@ -297,12 +307,12 @@ button{
     transform-origin:center bottom ;
     transition: all .5s;
 }
-.arrow img{       
+.arrow img, .arrow-shadow img{       
     z-index: 0;
-    width: 80px;
-    transform: rotate(-90deg);
+    width: 28px;
+    /* transform: rotate(-90deg);
     filter: invert(100%);
-    -webkit-filter: invert(100%);
+    -webkit-filter: invert(100%); */
 }/*Arrow*/
 
 

@@ -1,14 +1,14 @@
 let arrowState=0
 document.addEventListener('DOMContentLoaded',e=>{
-    const audio = document.createElement('audio')
-    audio.src='assets/ambient.mp3'
-    audio.play()
-    audio.loop=true
-    audio.addEventListener('ended',e=>{
-        audio.currentTime=0
-        audio.play()
+    // const audio = document.createElement('audio')
+    // audio.src='assets/ambient.mp3'
+    // audio.play()
+    // audio.loop=true
+    // audio.addEventListener('ended',e=>{
+    //     audio.currentTime=0
+    //     audio.play()
 
-    })
+    // })
 
     const triangle=document.querySelector('.triangle')
     const smallTriangle=document.querySelector('.small-triangle')
@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded',e=>{
 
     const arrowContainer= document.querySelector(".icon-container")
     const arrowHorizontal= document.querySelector(".arrow")
+    // const arrowShadow= document.querySelector(".arrow-shadow")
     
     const tryAgain= document.querySelector(".try-again")
     const tryCant= document.querySelector(".try-cant")
@@ -44,6 +45,7 @@ document.addEventListener('DOMContentLoaded',e=>{
     let timeIni=Date.now()
     let timeIniH=Date.now()
     let arrowIntervalV=null
+    let shadowInterval=null
     let arrowIntervalH=null
     let strength=null
     /*BALL MOVEMENT VARIABLES */
@@ -59,30 +61,18 @@ document.addEventListener('DOMContentLoaded',e=>{
         ball.addEventListener('click',e=>{
     
             if(arrowState==0){
-                
-                // if(arrowDirectionV==0){
-                //     console.log(`direccion ${arrowDirectionV} y la diferencia es ${600-(Date.now()-timeIni)}`)                
-                //     ballHeight=600-(Date.now()-timeIni)
-                // }else{
-                //     console.log(`direccion ${arrowDirectionV} y la diferencia es ${Date.now()-timeIni}`)
-                //     ballHeight=Date.now()-timeIni                
-                // }
+                console.log('vertical')
+              
                 clearInterval(arrowIntervalV)
+
                 let value=parseFloat(arrowContainer.style.transform.split(',')[3].split('deg')[0])
                 
                 ballHeight=(value+60)*2
                 arrowState=1
                
                 arrowIntervalH=setInterval(moveArrowH, 50);
-    
             }else if(arrowState==1){
-                // if(arrowDirectionH==0){
-                //     console.log(`direccion ${arrowDirectionH} y la diferencia es ${600-(Date.now()-timeIniH)}`)                
-                //     ballHor=600-(Date.now()-timeIniH)
-                // }else{
-                //     console.log(`direccion ${arrowDirectionH} y la diferencia es ${Date.now()-timeIniH}`)
-                //     ballHor=Date.now()-timeIniH                
-                // }
+               
                 ballHor=(parseFloat(arrowHorizontal.style.transform.split('(')[2].split('deg')[0])+60)*100/120
             
                 clearInterval(arrowIntervalH)
@@ -118,7 +108,7 @@ document.addEventListener('DOMContentLoaded',e=>{
                /*HIDDING ARROW */
             //    ball.style.top='40%'
                let value= (strengthVal * 0.8) + ballHeight
-               fakeBall.style.top=`calc(${-value}px + 31%)`
+               fakeBall.style.top=`calc(${-value}px + 30%)`
                let tempLeft=stadium.getBoundingClientRect().left
                let tempWidth=stadium.getBoundingClientRect().width
                let calc=((ballHor*tempWidth)/100)+tempLeft
@@ -154,7 +144,7 @@ document.addEventListener('DOMContentLoaded',e=>{
 
 
                 arrowContainer.style.visibility='hidden'
-                ball.style.top=`calc(${-value}px + 31%)`
+                ball.style.top=`calc(${-value}px + 30%)`
 
                 
                 ball.style.left=calc+'px'
@@ -169,17 +159,15 @@ document.addEventListener('DOMContentLoaded',e=>{
                         // ball.style.height='20px'
                         ball.style.width='19px'
                         ball.style.height='19px'     
-                        ball.style.top='31%'                        
+                        ball.style.top='30%'                        
                     },300)                    
-                    setTimeout(resetBallPosition,1000)
+                    setTimeout(resetBallPosition,1500)
                 }else{
                     ball.style.width='18px'
                     ball.style.height='18px'
-                    setTimeout(resetBallPosition,750)
+                    setTimeout(resetBallPosition,1500)
 
                 }
-                
-                
                 
                 arrowState=0
                 iniV=true
@@ -190,18 +178,17 @@ document.addEventListener('DOMContentLoaded',e=>{
                 rotateLeft=60;
                 rotateRight=-60;
                 rotateIni=0
-
-                
     
             }
     
         })
         iniPage.style.display='none'
         startTimer()
+
         arrowIntervalV=setInterval(moveArrowV, 75);
-
-
-
+        // moveShadow()
+        // shadowInterval=setInterval(moveShadow, 800);
+        
     })
 
     tryBtn.addEventListener('click',()=>{
@@ -212,16 +199,12 @@ document.addEventListener('DOMContentLoaded',e=>{
         showBonif()
         startTimer()
         arrowIntervalV=setInterval(moveArrowV, 75);
-
-
     })
 
     const resetBallPosition=(fromTry=false)=>{
         clearInterval(arrowIntervalV)
         clearInterval(arrowIntervalH)
         smallTriangle.style.transition='all 1s'
-
-
         ball.style.top='70%' 
         ball.style.left='50%' 
 
@@ -260,12 +243,33 @@ document.addEventListener('DOMContentLoaded',e=>{
 
     }
         
+
+  
+    // let shadowDirection = 0
+    // let shadowOriginalHeight=arrowShadow.offsetHeight
+    // function moveShadow(){
+        
+    //     if(shadowDirection==1){
+    //         arrowShadow.style.transform=`translateX(-50%) rotate3d(0,1,1,30deg)`
+    //         // arrowShadow.style.height=`${shadowOriginalHeight}px`
+
+    //         shadowDirection=0
+    //     }else{
+    //         arrowShadow.style.transform=`translateX(-50%) rotate3d(0,1,1,0deg)`
+    //         // arrowShadow.style.height=`${shadowOriginalHeight/2}px`
+
+    //         shadowDirection=1
+    //     }
+
+    // }
+
 //ARROW VERITCAL MOVEMENT
     let arrowDirectionV=1
     //0-UP 1-DOWN
     let iniV=true
     let rotateDown=0;
-    let rotateUp=-60;
+    let rotateUp=-50;
+    
     function moveArrowV(){
         console.log('VERTICAL')
         timeIni=Date.now()
@@ -274,23 +278,31 @@ document.addEventListener('DOMContentLoaded',e=>{
             iniV=false
         }
         if(arrowDirectionV == 0){
-            rotateUp=rotateUp+7.5
+            rotateUp=rotateUp+5
             if(rotateUp==0){                
                 arrowDirectionV=1
                 arrowContainer.style.transform='rotate3d(1,0,0,0deg)'
-                rotateUp=-60
+                rotateUp=-50
             }else{
-                arrowContainer.style.transform=`rotate3d(1,0,0,${rotateUp}deg)`
+                arrowContainer.style.transform=`rotate3d(1,0,0,${rotateUp}deg)`                
+
 
             }
         }else if(arrowDirectionV == 1){
-            rotateDown=rotateDown-7.5
-            if(rotateDown==-60){                
+         
+            rotateDown=rotateDown-5
+            if(rotateDown==-50){
+
+
                 arrowDirectionV=0
                 arrowContainer.style.transform=`rotate3d(1,0,0,${rotateDown}deg)`
                 rotateDown=0
+                
             }else{
                 arrowContainer.style.transform=`rotate3d(1,0,0,${rotateDown}deg)`
+
+                
+
 
             }
       
@@ -299,8 +311,8 @@ document.addEventListener('DOMContentLoaded',e=>{
 
 //ARROW HORIZONTAL MOVEMENT
 
-    let rotateLeft=60;
-    let rotateRight=-60;
+    let rotateLeft=50;
+    let rotateRight=-50;
     let rotateIni=0
     let arrowDirectionH=3
     //0-left 1-right
@@ -310,8 +322,8 @@ document.addEventListener('DOMContentLoaded',e=>{
         timeIni=Date.now()
         arrowHorizontal.style.transition="all .04s"
         if(arrowDirectionH == 3){
-            rotateIni=rotateIni+10
-            if(rotateIni==60){
+            rotateIni=rotateIni+5
+            if(rotateIni==50){
                 arrowDirectionH=0
                 arrowHorizontal.style.transform=`translateX(-50%) rotate(${rotateIni}deg)`
                 rotateIni=0
@@ -319,21 +331,21 @@ document.addEventListener('DOMContentLoaded',e=>{
                 arrowHorizontal.style.transform=`translateX(-50%) rotate(${rotateIni}deg)`
             }
         }if(arrowDirectionH == 0){            
-            rotateLeft=rotateLeft-10
-            if(rotateLeft==-60){
+            rotateLeft=rotateLeft-5
+            if(rotateLeft==-50){
                 arrowDirectionH=1
                 arrowHorizontal.style.transform=`translateX(-50%) rotate(${rotateLeft}deg)`
-                rotateLeft=60
+                rotateLeft=50
             }else{
                 arrowHorizontal.style.transform=`translateX(-50%) rotate(${rotateLeft}deg)`
             }
 
         }else if(arrowDirectionH == 1){
-            rotateRight=rotateRight+10
-            if(rotateRight==60){
+            rotateRight=rotateRight+5
+            if(rotateRight==50){
                 arrowDirectionH=0
                 arrowHorizontal.style.transform=`translateX(-50%) rotate(${rotateRight}deg)`
-                rotateRight=-60
+                rotateRight=-50
             }else{
                 arrowHorizontal.style.transform=`translateX(-50%) rotate(${rotateRight}deg)`
 
