@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded',e=>{
 
     const arrowContainer= document.querySelector(".icon-container")
     const arrowHorizontal= document.querySelector(".arrow")
-    // const arrowShadow= document.querySelector(".arrow-shadow")
+    const arrowShadow= document.querySelector(".icon-container-shadow")
     
     const tryAgain= document.querySelector(".try-again")
     const tryCant= document.querySelector(".try-cant")
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded',e=>{
                 clearInterval(arrowIntervalV)
 
                 let value=parseFloat(arrowContainer.style.transform.split(',')[3].split('deg')[0])
-                
+
                 ballHeight=(value+60)*2
                 arrowState=1
                
@@ -95,6 +95,9 @@ document.addEventListener('DOMContentLoaded',e=>{
                 arrowState=3
 
             }else if(arrowState==3){
+                arrowShadow.style.display='none'
+
+
                 let bottomTop=triangle.offsetTop+triangle.offsetHeight
                 strengthVal= bottomTop - smallTriangle.offsetTop
                 clearInterval(strength)
@@ -186,8 +189,8 @@ document.addEventListener('DOMContentLoaded',e=>{
         startTimer()
 
         arrowIntervalV=setInterval(moveArrowV, 75);
+        // shadowInterval=setInterval(moveShadow, 700);
         // moveShadow()
-        // shadowInterval=setInterval(moveShadow, 800);
         
     })
 
@@ -213,10 +216,17 @@ document.addEventListener('DOMContentLoaded',e=>{
         ball.style.transition='.5s'
         ballHeight=0
         ballHor=0
+
+        arrowShadow.firstElementChild.style.width='28px'
+        
+        shWidth=28
+
         if(fromTry){
             setTimeout(()=>{            
-                arrowContainer.style.transform='rotate3d(1,0,0,0deg)'
+                arrowContainer.style.transform='translateX(-50%) rotate3d(1,0,0,0deg)'
                 arrowHorizontal.style.transform=`translateX(-50%) rotate(0deg)`
+                arrowShadow.style.display='block'
+
                 
             },500)
 
@@ -233,9 +243,11 @@ document.addEventListener('DOMContentLoaded',e=>{
         }else{
             setTimeout(()=>{            
                 arrowContainer.style.visibility='visible'
-                arrowContainer.style.transform='rotate3d(1,0,0,0deg)'
+                arrowContainer.style.transform='translateX(-50%) rotate3d(1,0,0,0deg)'
                 arrowHorizontal.style.transform=`translateX(-50%) rotate(0deg)`
                 arrowIntervalV=setInterval(moveArrowV, 75);
+                arrowShadow.style.display='block'
+
             },500)
 
             showBonif()
@@ -245,18 +257,16 @@ document.addEventListener('DOMContentLoaded',e=>{
         
 
   
-    // let shadowDirection = 0
+    // let shadowDirection = 1
     // let shadowOriginalHeight=arrowShadow.offsetHeight
     // function moveShadow(){
         
     //     if(shadowDirection==1){
-    //         arrowShadow.style.transform=`translateX(-50%) rotate3d(0,1,1,30deg)`
-    //         // arrowShadow.style.height=`${shadowOriginalHeight}px`
+    //         arrowShadow.firstElementChild.style.width=`0px`
 
     //         shadowDirection=0
     //     }else{
-    //         arrowShadow.style.transform=`translateX(-50%) rotate3d(0,1,1,0deg)`
-    //         // arrowShadow.style.height=`${shadowOriginalHeight/2}px`
+    //         arrowShadow.firstElementChild.style.width=`28px`
 
     //         shadowDirection=1
     //     }
@@ -269,37 +279,67 @@ document.addEventListener('DOMContentLoaded',e=>{
     let iniV=true
     let rotateDown=0;
     let rotateUp=-50;
-    
+    let shWidth = 28;
     function moveArrowV(){
+        // console.log(shWidth)
         console.log('VERTICAL')
         timeIni=Date.now()
         arrowContainer.style.transition="all .08s"
         if(iniV){
             iniV=false
         }
+        
         if(arrowDirectionV == 0){
+            
             rotateUp=rotateUp+5
+            
+            let shadowCalc=  2.8 + shWidth
+            shWidth=parseFloat(shadowCalc.toFixed(2)) 
+            if(shWidth>28){
+                arrowShadow.firstElementChild.style.width=`28px`
+                shWidth=28
+
+            }else{
+                arrowShadow.firstElementChild.style.width=`${shWidth}px`
+
+            }
+
+
+            
             if(rotateUp==0){                
                 arrowDirectionV=1
-                arrowContainer.style.transform='rotate3d(1,0,0,0deg)'
+                arrowContainer.style.transform='translateX(-50%) rotate3d(1,0,0,0deg)'
                 rotateUp=-50
+                
             }else{
-                arrowContainer.style.transform=`rotate3d(1,0,0,${rotateUp}deg)`                
-
+                arrowContainer.style.transform=`translateX(-50%) rotate3d(1,0,0,${rotateUp}deg)`
 
             }
         }else if(arrowDirectionV == 1){
          
             rotateDown=rotateDown-5
+           
+            let shadowCalc=shWidth - 2.8
+            shWidth=parseFloat(shadowCalc.toFixed(2)) 
+
+            if(shWidth<0){
+                shWidth=0
+                arrowShadow.firstElementChild.style.width=`0px`
+                
+            }else{
+                arrowShadow.firstElementChild.style.width=`${shWidth}px`
+
+            }
+
             if(rotateDown==-50){
 
 
                 arrowDirectionV=0
-                arrowContainer.style.transform=`rotate3d(1,0,0,${rotateDown}deg)`
+                arrowContainer.style.transform=`translateX(-50%) rotate3d(1,0,0,${rotateDown}deg)`
                 rotateDown=0
                 
             }else{
-                arrowContainer.style.transform=`rotate3d(1,0,0,${rotateDown}deg)`
+                arrowContainer.style.transform=`translateX(-50%) rotate3d(1,0,0,${rotateDown}deg)`
 
                 
 
@@ -384,7 +424,7 @@ document.addEventListener('DOMContentLoaded',e=>{
     }
 
     const startTimer = ()=>{
-        let start=60
+        let start=10
         const timeInterval=setInterval(()=>{
             if(start==0){
                 timeOff.style.visibility='hidden'

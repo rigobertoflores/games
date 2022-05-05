@@ -291,24 +291,35 @@ button{
     transform-origin:center bottom;   
 
 }
-.arrow-shadow{
-    z-index: 90;
+.icon-container-shadow{
+    z-index: 0;
     position: absolute;
-    bottom: 70%;
+    bottom: 0;
     left: 50%;
-    transform: translateX(-50%) rotate3d(0,1,1,30deg);
+    transform: translateX(-50%) rotate3d(0,1,1,25deg);
     transform-origin:center bottom;
-    transition: all .9s;
+    /* transition: all .7s; */
+
+}
+.icon-container-shadow img{
+    z-index: 10;
+    width: 28px;
+    transition: all .25s;
+    opacity: .6 ;
 
 }
 
 .icon-container{
-    /* transform: rotate(-90deg);     */
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
     transform-origin:center bottom ;
     transition: all .5s;
+    z-index: 30;
 }
-.arrow img, .arrow-shadow img{       
-    z-index: 0;
+.arrow img{       
+    z-index: 30;
     width: 28px;
     /* transform: rotate(-90deg);
     filter: invert(100%);
