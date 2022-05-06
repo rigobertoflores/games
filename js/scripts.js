@@ -55,6 +55,8 @@ document.addEventListener('DOMContentLoaded',e=>{
 
 
     playBtn.addEventListener('click',e=>{
+        
+
         bonification.style.display='block'
         showBonif()
         
@@ -195,12 +197,15 @@ document.addEventListener('DOMContentLoaded',e=>{
     })
 
     tryBtn.addEventListener('click',()=>{
+        // resetBallPosition(true)
         goalsCounter.innerText='00'
         tryAgain.style.display='none'
         ball.style.display='block'
         bonification.style.display='block'
         showBonif()
         startTimer()
+        clearInterval(arrowIntervalV)
+        clearInterval(arrowIntervalH)
         arrowIntervalV=setInterval(moveArrowV, 75);
     })
 
@@ -253,6 +258,7 @@ document.addEventListener('DOMContentLoaded',e=>{
             showBonif()
         }
 
+        
     }
         
 
@@ -424,7 +430,7 @@ document.addEventListener('DOMContentLoaded',e=>{
     }
 
     const startTimer = ()=>{
-        let start=10
+        let start=60
         const timeInterval=setInterval(()=>{
             if(start==0){
                 timeOff.style.visibility='hidden'
@@ -451,7 +457,7 @@ document.addEventListener('DOMContentLoaded',e=>{
                     clearInterval(arrowIntervalV)
                     clearInterval(arrowIntervalH)
 
-                },1000)
+                },500)
             }else{
 
                 start=start - 1
@@ -537,5 +543,5 @@ const showIndicator = (indicator,mini=false)=>{
         }else{
             indicator.firstElementChild.style.top='-26px'
         }
-    },600)
+    },1000)
 }
