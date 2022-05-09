@@ -45,7 +45,7 @@ body{
 }
 .ini-page .center-content{
     position: absolute;
-    top: 50%;    
+    top: 40%;    
     transform: translateY(-50%);
     width: 100%;
     display: flex;
@@ -285,24 +285,45 @@ button{
 .arrow{
     z-index: 100;
     position: absolute;
-    bottom: 76%;
+    bottom: 70%;
     left: 50%;
     transform: translateX(-50%);
-    transform-origin:center bottom;    
+    transform-origin:center bottom;   
+
+}
+.icon-container-shadow{
+    z-index: 0;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) rotate3d(0,1,1,25deg);
+    transform-origin:center bottom;
+    /* transition: all .7s; */
+
+}
+.icon-container-shadow img{
+    z-index: 10;
+    width: 28px;
+    transition: all .25s;
+    opacity: .6 ;
 
 }
 
 .icon-container{
-    /* transform: rotate(-90deg);     */
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
     transform-origin:center bottom ;
     transition: all .5s;
+    z-index: 30;
 }
 .arrow img{       
-    z-index: 0;
-    width: 80px;
-    transform: rotate(-90deg);
+    z-index: 30;
+    width: 28px;
+    /* transform: rotate(-90deg);
     filter: invert(100%);
-    -webkit-filter: invert(100%);
+    -webkit-filter: invert(100%); */
 }/*Arrow*/
 
 
@@ -334,7 +355,7 @@ button{
     display: none;
     position: absolute;
     top: 63%;
-    left: calc(50% + 60px);
+    left: calc(50% + 80px);
     width: 100px;
     height: 100px;
     /* background-color: transparent;
@@ -347,10 +368,33 @@ button{
     visibility: hidden;
     position: absolute;
     top: 63%;
-    left: calc(50% + 92px);
+    left: calc(50% + 112px);
     border-top: 7px transparent solid ;
     border-right: 7px whitesmoke solid ;
     border-bottom: 7px transparent solid ;
     border-left: 7px transparent  solid ; 
     transition: all 1s;
 }
+.eapps-widget{
+    position: absolute !important;
+    top: 0px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 500000000000000000000000000;
+}
+
+elfsight-app-2e5d86b7-c95c-420a-8ded-f5c03d38dad7 a{
+    display: none !important;
+}
+/* 
+.VisitorCounter__VisitorCounterComponent-sc-quvvmc-0{
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+}
+.LayoutFour__LayoutFourComponent-sc-1dw9m9a-0{
+    padding: 3px 5px !important;
+    
+}
+.eapps-widget a{
+    display: none !important;
+} */
