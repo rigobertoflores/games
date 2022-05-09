@@ -1,5 +1,61 @@
 let arrowState=0
 document.addEventListener('DOMContentLoaded',e=>{
+
+    const visitCounter =document.querySelector('.elfsight-app-2e5d86b7-c95c-420a-8ded-f5c03d38dad7')
+    visitCounter.style.display='none'
+    setTimeout(()=>{
+        try {
+            visitCounter.style.display='block'
+            visitCounter.style.position='absolute'
+            visitCounter.style.top='0px'
+            visitCounter.style.left='50%'
+            visitCounter.style.transform='translateX(-50%)'
+            visitCounter.style.zIndex='9999999999999'
+            const visitCounterLink =document.querySelector('.elfsight-app-2e5d86b7-c95c-420a-8ded-f5c03d38dad7 a')
+            visitCounterLink.style.display='none'
+            
+            const visitCounterLayout=document.querySelector('.LayoutFour__LayoutFourComponent-sc-1dw9m9a-0')
+
+            visitCounterLayout.style.padding='3px 5px !important;'
+            const visitorCounterBorder=document.querySelector('.VisitorCounter__VisitorCounterComponent-sc-quvvmc-0')
+            visitorCounterBorder.style.borderTopLeftRadius='0px !important'
+            visitorCounterBorder.style.borderTopRightRadius='0px !important'
+
+        } catch (error) {
+            setTimeout(()=>{
+                try {
+                    visitCounter.style.display='block'
+                    visitCounter.style.position='absolute'
+                    visitCounter.style.top='0px'
+                    visitCounter.style.left='50%'
+                    visitCounter.style.transform='translateX(-50%)'
+                    visitCounter.style.zIndex='9999999999999'
+                    const visitCounterLink =document.querySelector('.elfsight-app-2e5d86b7-c95c-420a-8ded-f5c03d38dad7 a')
+                    visitCounterLink.style.display='none'
+                    
+                    const visitCounterLayout=document.querySelector('.LayoutFour__LayoutFourComponent-sc-1dw9m9a-0')
+        
+                    visitCounterLayout.style.padding='3px 5px !important;'
+                    const visitorCounterBorder=document.querySelector('.VisitorCounter__VisitorCounterComponent-sc-quvvmc-0')
+                    visitorCounterBorder.style.borderTopLeftRadius='0px !important'
+                    visitorCounterBorder.style.borderTopRightRadius='0px !important'
+        
+                } catch (error) {
+                    console.log('unable to show counter')
+                }
+                
+        
+                
+        
+        
+            },2000)
+        }
+        
+
+        
+
+
+    },2000)
     // const audio = document.createElement('audio')
     // audio.src='assets/ambient.mp3'
     // audio.play()
