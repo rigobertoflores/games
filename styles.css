@@ -278,6 +278,10 @@ button{
     width: 22px;
     height: 22px;
 }
+.bonification img{
+    opacity: .8;
+
+}
 /*Arrow*/
 .arrow-horizontal{
     transform-origin:center bottom ;    
@@ -398,3 +402,10 @@ elfsight-app-2e5d86b7-c95c-420a-8ded-f5c03d38dad7 a{
 .eapps-widget a{
     display: none !important;
 } */
+.jgoMOx{
+    padding: 10px !important;
+}
+.hUaSDA{
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+}

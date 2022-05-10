@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded',e=>{
             const visitorCounterBorder=document.querySelector('.VisitorCounter__VisitorCounterComponent-sc-quvvmc-0')
             visitorCounterBorder.style.borderTopLeftRadius='0px !important'
             visitorCounterBorder.style.borderTopRightRadius='0px !important'
+            const visitorCounterText=document.querySelector('.Counter__CounterTitle-sc-103kzvu-0')
+            visitorCounterText.textContent='Views'
 
         } catch (error) {
             setTimeout(()=>{
@@ -39,7 +41,8 @@ document.addEventListener('DOMContentLoaded',e=>{
                     const visitorCounterBorder=document.querySelector('.VisitorCounter__VisitorCounterComponent-sc-quvvmc-0')
                     visitorCounterBorder.style.borderTopLeftRadius='0px !important'
                     visitorCounterBorder.style.borderTopRightRadius='0px !important'
-        
+                    const visitorCounterText=document.querySelector('.Counter__CounterTitle-sc-103kzvu-0')
+                    visitorCounterText.textContent='Views'
                 } catch (error) {
                     console.log('unable to show counter')
                 }
