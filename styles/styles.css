@@ -379,33 +379,3 @@ button{
     border-left: 7px transparent  solid ; 
     transition: all 1s;
 }
-.eapps-widget{
-    position: absolute !important;
-    top: 0px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    z-index: 500000000000000000000000000;
-}
-
-elfsight-app-2e5d86b7-c95c-420a-8ded-f5c03d38dad7 a{
-    display: none !important;
-}
-/* 
-.VisitorCounter__VisitorCounterComponent-sc-quvvmc-0{
-    border-top-left-radius: 0px !important;
-    border-top-right-radius: 0px !important;
-}
-.LayoutFour__LayoutFourComponent-sc-1dw9m9a-0{
-    padding: 3px 5px !important;
-    
-}
-.eapps-widget a{
-    display: none !important;
-} */
-.jgoMOx{
-    padding: 10px !important;
-}
-.hUaSDA{
-    border-top-left-radius: 0px !important;
-    border-top-right-radius: 0px !important;
-}
